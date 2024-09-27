@@ -1,6 +1,250 @@
-<main>
-  <mat-slide-toggle>Toggle me!</mat-slide-toggle>
-</main>
-<button mat-button>test</button>
-
 <router-outlet />
+<button (click)="toggleTheme()" class="btn-primary">ToggleMode</button>
+<br /><br />
+<!-- Mat-button-toggle -->
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+  <mat-button-toggle value="bold">Bold</mat-button-toggle>
+  <mat-button-toggle value="italic">Italic</mat-button-toggle>
+  <mat-button-toggle value="underline">Underline</mat-button-toggle>
+</mat-button-toggle-group>
+<button class="btn-tertiary">test</button>
+
+<mat-button-toggle value="italic">Italic</mat-button-toggle>
+<mat-button-toggle value="underline">Underline</mat-button-toggle>
+<br /><br />
+<!-- Mat-slide-toggle -->
+<mat-slide-toggle>Toggle me!</mat-slide-toggle>
+<br />
+<br />
+<br />
+<!-- Mat-autocomplete -->
+<mat-form-field class="example-full-width">
+  <mat-label>Number</mat-label>
+  <input matInput type="text" disabled value="test" />
+</mat-form-field>
+<br /><br /><br />
+<!-- Mat-label -->
+<mat-form-field class="example-full-width">
+  <mat-label>Number</mat-label>
+  <input matInput type="text" />
+</mat-form-field>
+<br /><br /><br />
+<!-- Mat-autocomplete -->
+<mat-autocomplete #theId="matAutocomplete">
+  @for (name of array; track name) {
+  <mat-option [value]="name">{{ name }}</mat-option>
+  }
+</mat-autocomplete>
+<input
+  type="text"
+  placeholder="Pick one"
+  aria-label="Number"
+  matInput
+  [matAutocomplete]="theId"
+/>
+<br /><br /><br />
+<!-- Mat-badge -->
+<span matBadge="400" matBadgeOverlap="false" class="demo-section">
+  Text with a badge
+</span>
+<br /><br /><br />
+<!-- Mat-button -->
+<section>
+  <div class="example-label">Basic</div>
+  <div class="example-button-row">
+    <button mat-button>Basic</button>
+    <button mat-button disabled>Disabled</button>
+    <a mat-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+<mat-divider></mat-divider>
+<section>
+  <div class="example-label">Raised</div>
+  <div class="example-button-row">
+    <button mat-raised-button>Basic</button>
+    <button mat-raised-button disabled>Disabled</button>
+    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+<mat-divider></mat-divider>
+<section>
+  <div class="example-label">Stroked</div>
+  <div class="example-button-row">
+    <button mat-stroked-button>Basic</button>
+    <button mat-stroked-button disabled>Disabled</button>
+    <a mat-stroked-button href="https://www.google.com/" target="_blank"
+      >Link</a
+    >
+  </div>
+</section>
+<mat-divider></mat-divider>
+<section>
+  <div class="example-label">Flat</div>
+  <div class="example-button-row">
+    <button mat-flat-button>Basic</button>
+    <button mat-flat-button disabled>Disabled</button>
+    <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+<mat-divider></mat-divider>
+<section>
+  <div class="example-label">Icon</div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <button
+        mat-icon-button
+        aria-label="Example icon button with a vertical three dot icon"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        disabled
+        aria-label="Example icon button with a open in new tab icon"
+      >
+        <mat-icon>open_in_new</mat-icon>
+      </button>
+    </div>
+  </div>
+</section>
+<mat-divider></mat-divider>
+<section>
+  <div class="example-label">FAB</div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <div class="example-button-container">
+        <button mat-fab aria-label="Example icon button with a delete icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button
+          mat-fab
+          disabled
+          aria-label="Example icon button with a heart icon"
+        >
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<mat-divider></mat-divider>
+<section>
+  <div class="example-label">Mini FAB</div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <div class="example-button-container">
+        <button mat-mini-fab aria-label="Example icon button with a menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button
+          mat-mini-fab
+          disabled
+          aria-label="Example icon button with a home icon"
+        >
+          <mat-icon>home</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="example-label">Extended Fab</div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <div class="example-button-container">
+        <button mat-fab extended>
+          <mat-icon>favorite</mat-icon>
+          Basic
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button mat-fab extended disabled>
+          <mat-icon>favorite</mat-icon>
+          Disabled
+        </button>
+      </div>
+      <div class="example-button-container">
+        <a mat-fab extended routerLink=".">
+          <mat-icon>favorite</mat-icon>
+          Link
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Other buttons -->
+<div class="buttons">
+  <button mat-button class="btn">Default btn</button>
+  <button mat-button class="btn btn-primary">Btn primary</button>
+  <button mat-button class="btn btn-secondary">Btn secondary</button>
+  <button mat-button class="btn btn-tertiary">Btn tertiary</button>
+  <button mat-button class="btn btn-accent1">Btn accent1</button>
+  <button mat-button class="btn btn-accent2">Btn accent2</button>
+  <button mat-button class="btn btn-accent3">Btn accent3</button>
+  <button mat-button class="btn btn-accent4">Btn accent4</button>
+  <button mat-button class="btn btn-accent5">Btn accent5</button>
+  <button mat-button class="btn btn-accent6">Btn accent6</button>
+  <button mat-button class="btn btn-success">Btn success</button>
+  <button mat-button class="btn btn-warning">Btn warning</button>
+  <button mat-button class="btn btn-error">Btn error</button>
+  <button mat-button class="btn btn-info">Btn info</button>
+  <!-- form -->
+  <input type="submit" />
+  <input type="reset" />
+  <input type="button" value="Input btn" />
+  <a mat-button href="#" class="btn btn-white">Link btn white</a>
+
+  <a mat-button href="#" class="btn btn-grayLight">Link btn gray light</a>
+  <a mat-button href="#" class="btn btn-gray">Link btn gray</a>
+  <a mat-button href="#" class="btn btn-grayDark">Link btn gray dark</a>
+
+  <button mat-button class="btn btn-black">Btn black</button>
+  <button mat-button class="btn btn-turquoiseLight">Btn turquoise light</button>
+  <button mat-button class="btn btn-turquoise">Btn turquoise</button>
+  <button mat-button class="btn btn-turquoiseDark">Btn turquoise dark</button>
+  <button mat-button class="btn btn-blueLight">Btn blue light</button>
+  <button mat-button class="btn btn-blue">Btn blue</button>
+  <button mat-button class="btn btn-blueDark">Btn blue dark</button>
+  <button mat-button class="btn btn-greenLight">Btn green light</button>
+  <button mat-button class="btn btn-green">Btn green</button>
+  <button mat-button class="btn btn-greenDark">Btn green dark</button>
+  <button mat-button class="btn btn-yellowLight">Btn yellow light</button>
+  <button mat-button class="btn btn-yellow">Btn yellow</button>
+  <button mat-button class="btn btn-yellowDark">Btn yellow dark</button>
+  <button mat-button class="btn btn-orangeLight">Btn orange light</button>
+  <button mat-button class="btn btn-orange">Btn orange</button>
+  <button mat-button class="btn btn-orangeDark">Btn orange dark</button>
+  <button mat-button class="btn btn-redLight">Btn red light</button>
+  <button mat-button class="btn btn-red">Btn red</button>
+  <button mat-button class="btn btn-redDark">Btn red dark</button>
+  <button mat-button class="btn btn-pinkLight">Btn pink light</button>
+  <button mat-button class="btn btn-pink">Btn pink</button>
+  <button mat-button class="btn btn-pinkDark">Btn pink dark</button>
+  <button mat-button class="btn btn-purpleLight">Btn purple light</button>
+  <button mat-button class="btn btn-purple">Btn purple</button>
+  <button mat-button class="btn btn-purpleDark">Btn purple dark</button>
+
+  <button disabled="disabled">Disabled btn</button>
+</div>
+<!-- Mat-icon -->
+<mat-icon>favorite</mat-icon>
+<br /><br />
+<!-- Texts -->
+<h1>Title 1</h1>
+<h2>Title 2</h2>
+<h3>Title 3</h3>
+<h4>Title 4</h4>
+<h5>Title 5</h5>
+<h6>Title 6</h6>
+<p class="fw-100">This is a text 100.</p>
+<p class="fw-200">This is a text 200.</p>
+<p class="fw-300">This is a text 300.</p>
+<p class="fw-400">This is a text 400.</p>
+<p class="fw-500">This is a text 500.</p>
+<p class="fw-600">This is a text 600.</p>
+<p class="fw-700">This is a text 700.</p>
+<p>A text with a <a href="#">Link</a></p>

@@ -40,7 +40,9 @@
               "node_modules/@theatrixx123/angular-package/dist/index.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@theatrixx123/angular-package/dist/index.js"
+            ]
           },
           "configurations": {
             "production": {
