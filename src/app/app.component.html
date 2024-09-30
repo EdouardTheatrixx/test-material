@@ -1,16 +1,136 @@
 <router-outlet />
 <button (click)="toggleTheme()" class="btn-primary">ToggleMode</button>
 <br /><br />
+<!-- Mat Date Picker -->
+<mat-form-field class="example-full-width">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" />
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<br /><br />
+<mat-form-field>
+  <mat-label>Month and Year</mat-label>
+  <input matInput [matDatepicker]="dp" />
+  <mat-hint>MM/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+  <mat-datepicker #dp startView="multi-year" panelClass="example-month-picker">
+  </mat-datepicker>
+</mat-form-field>
+<br /><br />
+<mat-form-field>
+  <mat-label>Enter a date range</mat-label>
+  <mat-date-range-input [rangePicker]="picker">
+    <input matStartDate placeholder="Start date" />
+    <input matEndDate placeholder="End date" />
+  </mat-date-range-input>
+  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-date-range-picker #picker></mat-date-range-picker> </mat-form-field
+><br /><br />
+<mat-form-field>
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker" />
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<br /><br />
+<!-- Mat-chips -->
+<mat-chip-set aria-label="Fish selection">
+  <mat-chip>One fish</mat-chip>
+  <mat-chip>Two fish</mat-chip>
+  <mat-chip>Three fish</mat-chip>
+  <mat-chip disabled>Four fish</mat-chip>
+</mat-chip-set>
+
+<mat-chip-listbox>
+  <mat-chip-option>Orange</mat-chip-option>
+  <mat-chip-option>Orange</mat-chip-option>
+  <mat-chip-option disabled>Orange</mat-chip-option>
+</mat-chip-listbox>
+
+<mat-form-field class="example-chip-list">
+  <mat-label>Favorite Fruits</mat-label>
+  <mat-chip-grid #chipGrid aria-label="Enter fruits">
+    @for (fruit of fruits(); track fruit) {
+    <mat-chip-row
+      (removed)="removeChip(fruit)"
+      [editable]="true"
+      (edited)="editChip(fruit, $event)"
+      [aria-description]="'press enter to edit ' + fruit.name"
+    >
+      {{ fruit.name }}
+      <button matChipRemove [attr.aria-label]="'remove ' + fruit.name">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip-row>
+    }
+    <input
+      placeholder="New fruit..."
+      [matChipInputFor]="chipGrid"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="addOnBlur"
+      (matChipInputTokenEnd)="addChip($event)"
+    />
+  </mat-chip-grid>
+</mat-form-field>
+
+<br /><br />
+<!-- Mat-checkbox -->
+<mat-checkbox [aria-label]="'test'"> test</mat-checkbox>
+
+<mat-checkbox class="example-margin" [disabled]="true" checked="true"
+  >Disabled</mat-checkbox
+>
+
+<section class="example-section">
+  <span class="example-list-section">
+    <mat-checkbox
+      class="example-margin"
+      [checked]="task().completed"
+      [indeterminate]="partiallyComplete()"
+      (change)="update($event.checked)"
+    >
+      {{ task().name }}
+    </mat-checkbox>
+  </span>
+  <span class="example-list-section">
+    <ul>
+      @for (subtask of task().subtasks; track subtask; let i = $index) {
+      <li>
+        <mat-checkbox
+          [checked]="subtask.completed"
+          (change)="update($event.checked, i)"
+        >
+          {{ subtask.name }}
+        </mat-checkbox>
+      </li>
+      }
+    </ul>
+  </span>
+</section>
+<br />
+<br />
+
+<!-- Mat-card -->
+
+<mat-card appearance="outlined">
+  <mat-card-content>
+    <mat-card-title>Title</mat-card-title>
+    Simple card
+  </mat-card-content>
+</mat-card>
+<br /><br />
+
 <!-- Mat-button-toggle -->
 <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
   <mat-button-toggle value="bold">Bold</mat-button-toggle>
   <mat-button-toggle value="italic">Italic</mat-button-toggle>
   <mat-button-toggle value="underline">Underline</mat-button-toggle>
 </mat-button-toggle-group>
-<button class="btn-tertiary">test</button>
-
-<mat-button-toggle value="italic">Italic</mat-button-toggle>
-<mat-button-toggle value="underline">Underline</mat-button-toggle>
+<button>test</button>
 <br /><br />
 <!-- Mat-slide-toggle -->
 <mat-slide-toggle>Toggle me!</mat-slide-toggle>
