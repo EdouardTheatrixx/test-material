@@ -6,10 +6,22 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import { SharedModule } from './shared/shared.module';
+import { DialogComponent } from './dialogs/dialog/dialog.component';
+
+import { MatGridListModule } from '@angular/material/grid-list';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, SharedModule],
+  declarations: [AppComponent, DialogComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule,
+    MatGridListModule,
+    ReactiveFormsModule,
+    MatSidenavModule,
+  ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })

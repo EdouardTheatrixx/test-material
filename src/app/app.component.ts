@@ -14,6 +14,19 @@ import {
 } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
+import { DialogComponent } from './dialogs/dialog/dialog.component';
+import { FormControl, Validators } from '@angular/forms';
+import { merge } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 export interface Task {
   name: string;
@@ -34,6 +47,10 @@ export class AppComponent {
   constructor() {
     const element = document.body;
     element.classList.add('theme-light');
+
+    merge(this.email.statusChanges, this.email.valueChanges)
+      .pipe(takeUntilDestroyed())
+      .subscribe(() => this.updateErrorMessage());
   }
   title = 'test';
   array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -182,4 +199,29 @@ export class AppComponent {
     // Prevent Saturday and Sunday from being selected.
     return day !== 0 && day !== 6;
   };
+  // Dialog
+  readonly dialog = inject(MatDialog);
+  openDialog() {
+    this.dialog.open(DialogComponent, {
+      data: { name: 'Angular' },
+    });
+  }
+  // panel expension
+  readonly panelOpenState = signal(false);
+
+  // email
+
+  readonly email = new FormControl('', [Validators.required, Validators.email]);
+
+  errorMessage = signal('');
+
+  updateErrorMessage() {
+    if (this.email.hasError('required')) {
+      this.errorMessage.set('You must enter a value');
+    } else if (this.email.hasError('email')) {
+      this.errorMessage.set('Not a valid email');
+    } else {
+      this.errorMessage.set('');
+    }
+  }
 }
