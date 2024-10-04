@@ -11,6 +11,8 @@ import { DialogComponent } from './dialogs/dialog/dialog.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
+import { MatTreeModule } from '@angular/material/tree';
 
 @NgModule({
   declarations: [AppComponent, DialogComponent],
@@ -21,6 +23,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatGridListModule,
     ReactiveFormsModule,
     MatSidenavModule,
+    MatTableModule,
+    MatTreeModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
