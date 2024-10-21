@@ -37,12 +37,10 @@
               }
             ],
             "styles": [
-              "node_modules/@theatrixx123/angular-package/dist/index.css",
+              "node_modules/@theatrixx/angular-package/dist/index.css",
               "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/@theatrixx123/angular-package/dist/index.js"
-            ]
+            "scripts": ["node_modules/@theatrixx/angular-package/dist/index.js"]
           },
           "configurations": {
             "production": {
